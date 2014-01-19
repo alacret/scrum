@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from ps.forms import PublicacionForm
@@ -9,14 +9,20 @@ def add(request):
     return render_to_response("add.html",{"form":form},context_instance = RequestContext(request))
 
 def all(request):
-    return render_to_response("pubs.html",{},context_instance = RequestContext(request))
+	all = Publicacion.objects.all()
+	return render_to_response("pubs.html",{'all':all},context_instance = RequestContext(request))
 
 def agregar(request):
-	publicacion = PublicacionForm(request.POST)
-	publicacion.save()
-	return HttpResposeRedirect('/pubs')
-	# if request.method == 'POST':
-	# 	form = PublicacionForm(request.POST)
-	# 	if form.is_valid():
-	# 		return HttpResposeRedirect('/pubs')
-	# return HttpResposeRedirect('/')
+	saved_pub = save_pub(request.POST)
+	if saved_pub is not None:
+		where_to_go = '/pubs'
+	else:
+		where_to_go = '/'
+	return HttpResponseRedirect(where_to_go)
+
+def save_pub(post):
+	form = PublicacionForm(post)
+	if form.is_valid():
+		return form.save()
+	return None
+	

@@ -19,6 +19,7 @@ class Publicacion(models.Model):
 
 
 from django.test import TestCase
+#from comercio.ps import save_pub
 
 class PubTestCase(TestCase):
     def setUp(self):
@@ -32,11 +33,9 @@ class PubTestCase(TestCase):
     def test_can_list(self):
         all = Publicacion.objects.all()
         self.assertEqual(all.count(), 2)
-    def test_controller_add(self):
-        test1 = Publicacion.objects.get(titulo="test1")
-        test2 = Publicacion.objects.get(titulo="test2")
-        self.assertEqual(test1.titulo, "test1")
-        self.assertEqual(test2.titulo, "test2")
-    def test_controller_list(self):
-        all = Publicacion.objects.all()
-        self.assertEqual(all.count(), 2)
+    '''def test_controller_add(self):
+	foo = 'foo'
+	saved_pub = save_pub({'titulo':foo})
+        self.assertEqual(saved_pub.titulo, foo)'''
+
+        
