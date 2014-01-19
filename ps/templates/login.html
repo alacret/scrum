@@ -11,9 +11,9 @@
 	<br>
 	<h2>Autentificacion de comerciantes</h2>
 	<hr>
-	<form action="/logear" method="post">{% csrf_token %}
+	<form action="/login" method="post">{% csrf_token %}
 		Correo:<input type="text" name = "correo"><br>
-		Password:<input type="pasword" name = "password"><br>
+		Password:<input type="password" name = "password"><br>
 		<input type="submit" value="Submit" />
 	</form>
 </body>
