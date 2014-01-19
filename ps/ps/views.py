@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from ps.forms import PublicacionForm
+from ps.forms import PublicacionForm, ComercianteForm
 from comercio.models import Publicacion
 
 def add(request):
@@ -10,6 +10,16 @@ def add(request):
 
 def all(request):
     return render_to_response("pubs.html",{},context_instance = RequestContext(request))
+
+def registrar(request):
+	if request.method == 'POST':
+		comerciante = ComercianteForm(request.POST)
+		comerciante.save()
+		return HttpResposeRedirect('/login')
+	else:
+		form = ComercianteForm()
+		return render_to_response("register.html",{"form":form},context_instance = RequestContext(request))
+
 
 def agregar(request):
 	publicacion = PublicacionForm(request.POST)
