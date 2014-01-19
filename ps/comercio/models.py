@@ -24,9 +24,19 @@ class PubTestCase(TestCase):
     def setUp(self):
         Publicacion.objects.create(titulo="test1")
         Publicacion.objects.create(titulo="test2")
-
-    def test_animals_can_speak(self):
+    def test_can_add(self):
         test1 = Publicacion.objects.get(titulo="test1")
         test2 = Publicacion.objects.get(titulo="test2")
         self.assertEqual(test1.titulo, "test1")
         self.assertEqual(test2.titulo, "test2")
+    def test_can_list(self):
+        all = Publicacion.objects.all()
+        self.assertEqual(all.count(), 2)
+    def test_controller_add(self):
+        test1 = Publicacion.objects.get(titulo="test1")
+        test2 = Publicacion.objects.get(titulo="test2")
+        self.assertEqual(test1.titulo, "test1")
+        self.assertEqual(test2.titulo, "test2")
+    def test_controller_list(self):
+        all = Publicacion.objects.all()
+        self.assertEqual(all.count(), 2)
