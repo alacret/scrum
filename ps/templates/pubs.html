@@ -10,7 +10,7 @@
 </div>
 <br>
 <div style="text-align: right;">
-	<a href="#">Agregar publicaci&oacute;n</a>
+	<a href="/">Agregar publicaci&oacute;n</a>
 </div>
 <h2>Publicaciones de comerciantes</h2>
 <hr>
@@ -37,9 +37,16 @@
 		</th>
 	</thead>
 	<tbody>
+{% for p in all %}
 		<tr align="center">
-			<td>lnhvlsd</td><td>dslkfjhlkds</td><td>ldskjhfs</td><td>lskdhfkls</td><td>kjsdhf</td><td>lksjdhf</td>
+			<td>{{p.titulo}}</td>
+			<td>{{p.pub_date}}</td>
+			<td>{{p.productos}}</td>
+			<td>{{p.nombre_comercio}}</td>
+			<td>{{p.nombre_comerciante}}</td>
+			<td>{{p.direccion}}</td>
 		</tr>
+{% endfor %}
 		
 	</tbody>
 
