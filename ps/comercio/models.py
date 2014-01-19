@@ -20,14 +20,11 @@ class Publicacion(models.Model):
      direccion = models.CharField(max_length=200)
      nombre_comercio = models.CharField(max_length=200)
      nombre_comerciante = models.CharField(max_length=200)
-#    poll = models.ForeignKey(Comerciante)
-#    choice_text = models.CharField(max_length=200)
-#    votes = models.IntegerField(default=0)
      pub_date = models.DateTimeField(auto_now_add=True)
 
 
 from django.test import TestCase
-#from comercio.ps import save_pub
+from views import save_pub
 
 class PubTestCase(TestCase):
     def setUp(self):
@@ -41,9 +38,9 @@ class PubTestCase(TestCase):
     def test_can_list(self):
         all = Publicacion.objects.all()
         self.assertEqual(all.count(), 2)
-    '''def test_controller_add(self):
+    def test_controller_add(self):
 	foo = 'foo'
 	saved_pub = save_pub({'titulo':foo})
-        self.assertEqual(saved_pub.titulo, foo)'''
+        self.assertEqual(saved_pub.titulo, foo)
 
         
