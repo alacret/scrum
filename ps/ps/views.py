@@ -25,7 +25,13 @@ def login(request):
 	if request.method == 'POST':
 		# comerciante = ComercianteForm(request.POST)
 		# comerciante.save()
-		#user = Comerciante.objects.filter(correo=)
+		user = Comerciante.objects.filter(correo=request.POST["correo"],password=request.POST["password"])
+
+		if user:
+			return HttpResposeRedirect('/pubs')
+		else:
+			return HttpResposeRedirect('/login')
+
 		return HttpResposeRedirect('/pub')
 	else:
 		return render_to_response("login.html",{},context_instance = RequestContext(request))
