@@ -40,7 +40,10 @@ class PubTestCase(TestCase):
         self.assertEqual(all.count(), 2)
     def test_controller_add(self):
 	foo = 'foo'
-	saved_pub = save_pub({'titulo':foo})
+	saved_pub = save_pub({'titulo':foo,'productos':foo,'direccion':foo,'nombre_comercio':foo,'nombre_comerciante':foo})
+        self.assertEqual(saved_pub.titulo, foo)
+    def test_login(self):
+	c = Comerciante()
         self.assertEqual(saved_pub.titulo, foo)
 
         
