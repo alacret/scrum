@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>
+	Autentificacion de comerciantes
+	</title>
+</head>
+<body>
+	<div style="background: blue; padding: 20px; color: white">
+		<h1 style="text-align: center">DESABASTECIMIENTO.COM</h1>
+	</div>
+	<br>
+	<h2>Autentificacion de comerciantes</h2>
+	<hr>
+	<form action="/login" method="post">{% csrf_token %}
+		Correo:<input type="text" name = "correo"><br>
+		Password:<input type="password" name = "password"><br>
+		<input type="submit" value="Submit" />
+	</form>
+</body>
+</html>
