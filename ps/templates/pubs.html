@@ -1,57 +1,66 @@
+<!DOCTYPE html>
 <html>
-<head>
-	<title>
-	Publicación de productos
-	</title>
-</head>
-<body>
-<div style="background: blue; padding: 20px; color: white">
-	<h1 style="text-align: center">DESABASTECIMIENTO.COM</h1>
-</div>
-<br>
-<div style="text-align: right;">
-	<a href="/">Agregar publicaci&oacute;n</a>
-</div>
-<h2>Publicaciones de comerciantes</h2>
-<hr>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
 
-<table width="80%" align="center">
-	<thead style="background: yellow">
-		<th>
-			T&iacute;tulo
-		</th>
-		<th>
-			Fecha de publicaci&oacute;n
-		</th>
-		<th>
-			Productos
-		</th>
-		<th>
-			Comercio
-		</th>
-		<th>
-			Comerciante
-		</th>
-		<th>
-			Direcci&oacute;n
-		</th>
-	</thead>
-	<tbody>
-{% for p in all %}
-		<tr align="center">
-			<td>{{p.titulo}}</td>
-			<td>{{p.pub_date}}</td>
-			<td>{{p.productos}}</td>
-			<td>{{p.nombre_comercio}}</td>
-			<td>{{p.nombre_comerciante}}</td>
-			<td>{{p.direccion}}</td>
-		</tr>
-{% endfor %}
-		
-	</tbody>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="jumbotron">
+      <h1>Desabastecimiento.com</h1>
+      <p>Aplicacion para anunciar cuando existen productos nuevos</p>
+    </div>
+    <div class="container">
 
+      <div class="row">        
+        <!-- CAJA -->
+        {% for p in all %}
+        <div class="col-md-3 caja">
+          <div class="row row-fecha">
+            <div class="col-md-3 col-md-offset-9">
+              {{p.pub_date}}
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-11 row-titulo">
+                {{p.titulo}}
+              </div>
+          </div>
+          <div class="row row-productos">
+              <div class="col-md-10 col-md-offset-1">
+                {{p.productos}}
+              </div>
+          </div>
+          <div class="row row-footer">
+              <div class="col-md-10">
+                {{p.nombre_comercio}} - {{p.nombre_comerciante}}
+              </div>
+          </div>
+          <div class="row row-footer">
+              <div class="col-md-10">
+                {{p.direccion}}
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+        <!-- CAJA -->
+      </div>
+    </div> <!-- /container -->
 
-</table>
-
-</body>
+    
+        
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>

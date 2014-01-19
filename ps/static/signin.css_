@@ -4,26 +4,6 @@ body {
   background-color: #eee;
 }
 
-.caja {
-  margin: 5px;
-}
-
-.row-fecha {
-  background-color: #DDD;
-}
-
-.row-titulo {
-  background-color: white;
-}
-
-.row-productos {
-  background-color: white;
-}
-
-.row-footer {
-  background-color: #DDD; 
-}
-
 .form-signin {
   max-width: 330px;
   padding: 15px;
