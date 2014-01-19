@@ -10,8 +10,8 @@ class Comerciante(models.Model):
     nombre = models.CharField(max_length=200)
     rif = models.CharField(max_length=200)
     nombre_comercio = models.CharField(max_length=200)
-    correo =  models.CharField(max_length=200)
-    password = models.CharField(max_length=200)
+    correo =  models.CharField(max_length=200,null=True)
+    password = models.CharField(max_length=200,null=True)
 
 
 class Publicacion(models.Model):
@@ -43,7 +43,9 @@ class PubTestCase(TestCase):
 	saved_pub = save_pub({'titulo':foo,'productos':foo,'direccion':foo,'nombre_comercio':foo,'nombre_comerciante':foo})
         self.assertEqual(saved_pub.titulo, foo)
     def test_login(self):
-	c = Comerciante()
-        self.assertEqual(saved_pub.titulo, foo)
+	test_value = "Jorge Perez"
+	c = Comerciante(nombre= test_value,rif='J23',nombre_comercio='Comercio prueba')
+	c.save()
+        self.assertEqual(c.nombre, test_value)
 
         
