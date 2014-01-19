@@ -7,3 +7,10 @@ def add(request):
 
 def all(request):
     return render_to_response("pubs.html",{},context_instance = RequestContext(request))
+
+def agregar(request):
+	if request.method == 'POST':
+		form = PublicacionForm(request.POST)
+		if form.is_valid():
+			return HttpResposeRedirect('/pubs')
+	return HttpResposeRedirect('/')
