@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>
+	Registro de comerciantes
+	</title>
+</head>
+<body>
+	<div style="background: blue; padding: 20px; color: white">
+		<h1 style="text-align: center">DESABASTECIMIENTO.COM</h1>
+	</div>
+	<br>
+	<h2>Registro de comerciantes</h2>
+	<hr>
+	<form action="/registrar" method="post">{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Submit" />
+	</form>
+</body>
+</html>

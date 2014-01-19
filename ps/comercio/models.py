@@ -6,6 +6,14 @@ from django.db import models
 #    name = models.CharField(max_length=200)
 #    rif = models.CharField(max_length=200)
 
+class Comerciante(models.Model):
+    nombre = models.CharField(max_length=200)
+    rif = models.CharField(max_length=200)
+    nombre_comercio = models.CharField(max_length=200)
+    correo =  models.CharField(max_length=200)
+    password = models.CharField(max_length=200)
+
+
 class Publicacion(models.Model):
      titulo = models.CharField(max_length=200)
      productos = models.TextField()
