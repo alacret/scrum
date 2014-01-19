@@ -108,7 +108,7 @@ ROOT_URLCONF = 'ps.urls'
 WSGI_APPLICATION = 'ps.wsgi.application'
 
 TEMPLATE_DIRS = (
-"/home/alacret/workspace/scrum/ps/templates",
+"/home/rramos/proyectos/scrum/ps/templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
