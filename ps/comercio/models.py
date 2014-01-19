@@ -18,12 +18,15 @@ class Publicacion(models.Model):
      pub_date = models.DateTimeField(auto_now_add=True)
 
 
-import unittest 
+from django.test import TestCase
 
-class PubAddTestCase(unittest.TestCase):
-    def testAdd(self):
-	test_string = "titulo de prueba"
-	pub = Publicacion()
-	pub.titulo = test_string
-	pub.save()
-        self.assertEqual(pub.titulo, test_string)
+class PubTestCase(TestCase):
+    def setUp(self):
+        Publicacion.objects.create(titulo="test1")
+        Publicacion.objects.create(titulo="test2")
+
+    def test_animals_can_speak(self):
+        test1 = Publicacion.objects.get(titulo="test1")
+        test2 = Publicacion.objects.get(titulo="test2")
+        self.assertEqual(test1.titulo, "test1")
+        self.assertEqual(test2.titulo, "test2")
