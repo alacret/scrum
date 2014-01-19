@@ -5,48 +5,18 @@
 	</title>
 </head>
 <body>
-<div style="background: blue; padding: 20px; color: white">
-	<h1 style="text-align: center">DESABASTECIMIENTO.COM</h1>
-</div>
-<br>
-<div style="text-align: right;">
-	<a href="#">Lista de publicaciones</a>
-</div>
-<h2>Nueva publicaci&oacute;n</h2>
-<hr>
-<form action="/agregar/" method="post" id="formaPublicacion">
-<table width="80%" align="center">
-<tr>
-	<td><strong>T&iacute;tulo</strong></td>
-</tr>
-<tr>
-	<td><input type="text" name="titulo" /></td>
-</tr>
-<tr>
-	<td><strong>Comercio</strong></td>
-</tr>
-<tr>
-	<td><input type="text" name="nombre_comercio" /></td>
-</tr>
-<tr>
-	<td><strong>Comerciante</strong></td>
-</tr>
-<tr>
-	<td><input type="text" name="nombre_comerciante" /></td>
-</tr>
-<tr>
-	<td><strong>Productos</strong></td>
-</tr>
-<tr>
-	<td><textarea rows="5" cols="45" name="productos"></textarea></td>
-</tr>
-<tr>
-	<td><button id="publicar">Publicar</button>&nbsp;&nbsp;&nbsp;<button id="cancelar">Cancelar</button></td>
-</tr>
-
-
-</table>
-</form>
-
+	<div style="background: blue; padding: 20px; color: white">
+		<h1 style="text-align: center">DESABASTECIMIENTO.COM</h1>
+	</div>
+	<br>
+	<div style="text-align: right;">
+		<a href="#">Lista de publicaciones</a>
+	</div>
+	<h2>Nueva publicaci&oacute;n</h2>
+	<hr>
+	<form action="/agregar/" method="post">{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Submit" />
+	</form>
 </body>
 </html>
